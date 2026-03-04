@@ -1,6 +1,20 @@
-function generateGrid(rows, columns){
-    const container = document.querySelector(".container");
+const container = document.querySelector(".container");
 
+let pencilApplied = false; 
+
+document.addEventListener("click", (e) => {
+    if(e.button === 0 && e.target.classList.contains("square")) pencilApplied = !pencilApplied;
+});
+
+
+container.addEventListener("mouseover", (e) =>{
+    if(pencilApplied && e.target.classList.contains("square")){
+        e.target.style.backgroundColor = "grey"; 
+    }
+})
+
+
+function generateGrid(rows, columns){
     container.innerHTML = "";
 
     for(let i = 0; i < rows * columns; i++){
@@ -13,12 +27,6 @@ function generateGrid(rows, columns){
         container.appendChild(div); 
     }
 
-    document.querySelectorAll(".square").forEach(square =>{
-    square.addEventListener("mouseenter", (e) => {
-        e.target.style.backgroundColor = "grey";
-    })
-})
-
 }
 
 generateGrid(16, 16);
@@ -30,4 +38,5 @@ gridConfigurationButton.addEventListener("click", () =>{
     let columns = Math.max(Math.min(prompt("Enter the number of rows", 16), 100), 16);
 
     generateGrid(rows, columns);
+    pencilApplied = false;
 })
