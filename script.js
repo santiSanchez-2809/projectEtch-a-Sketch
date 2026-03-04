@@ -6,10 +6,13 @@ document.addEventListener("click", (e) => {
     if(e.button === 0 && e.target.classList.contains("square")) pencilApplied = !pencilApplied;
 });
 
+function random(num){
+    return Math.floor(Math.random() * num);
+}
 
 container.addEventListener("mouseover", (e) =>{
     if(pencilApplied && e.target.classList.contains("square")){
-        e.target.style.backgroundColor = "grey"; 
+        e.target.style.backgroundColor = `rgb(${random(256)}, ${random(256)}, ${random(256)})`;
     }
 })
 
@@ -40,3 +43,5 @@ gridConfigurationButton.addEventListener("click", () =>{
     generateGrid(rows, columns);
     pencilApplied = false;
 })
+
+
