@@ -24,12 +24,20 @@ html, body{
 
 .header{
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-top: 1em;
     margin-bottom: 3em;
 }
 
 #gridConfiguration{
     margin-left: 1em;
+    margin-right: auto;
     size: 100px;
+}
+
+.squareConfigurationContainer{
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+    
 }
